@@ -20,5 +20,5 @@ htpasswd -b users.htpasswd user6 1redhat
 Addtional commands
 [source, bash]
 ----
-oc describe OAuth/cluster # describe the configure Auth methods
+oc describe OAuth/cluster # describe the configured indentity providers
 ----
