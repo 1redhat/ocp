@@ -1,11 +1,10 @@
-= htpasswd
+= HTPasswd
 
 Configure an HTPasswd identity provider, based on the https://docs.openshift.com/container-platform/4.3/authentication/identity_providers/configuring-htpasswd-identity-provider.html[documentation]
 
-
 CAUTION: This is for demo purposes only 
 
-* Login into openshift using `oc login -u kubadmin ...`
+* Login into openshift using `oc login -u kubadmin -p ...`
 * Execute the script below to configure httpasswd and add roles to the users.
 ----
 ./run.sh
