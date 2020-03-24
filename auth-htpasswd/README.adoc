@@ -2,6 +2,7 @@
 
 Configure an HTPasswd identity provider, based on the https://docs.openshift.com/container-platform/4.3/authentication/identity_providers/configuring-htpasswd-identity-provider.html[documentation]
 
+
 CAUTION: This is for demo purposes only 
 
 * Login into openshift using `oc login -u kubadmin ...`
@@ -9,6 +10,7 @@ CAUTION: This is for demo purposes only
 ----
 ./run.sh
 ----
+Now you should have `user1` to `user5`, and `admin1` to `admin5` with the password `1redhat` configured in the `htpasswd` provider
 
 NOTE: the identity provider can also be added using the UI at Administration -> Cluster Settings, Global Configuration tab, click OAuth
 
