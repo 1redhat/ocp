@@ -1,0 +1,24 @@
+= htpasswd
+
+Configure an HTPasswd identity provider, based on the https://docs.openshift.com/container-platform/4.3/authentication/identity_providers/configuring-htpasswd-identity-provider.html[documentation]
+
+CAUTION: This is for demo purposes only 
+
+* Login into openshift using `oc login -u kubadmin ...`
+* Execute the script below to configure httpasswd and add roles to the users.
+----
+./run.sh
+----
+
+NOTE: the identity provider can also be added using the UI at Administration -> Cluster Settings, Global Configuration tab, click OAuth
+
+== Adding additional users
+----
+htpasswd -b users.htpasswd user6 1redhat
+----
+
+Addtional commands
+[source, bash]
+----
+oc describe OAuth/cluster # describe the configure Auth methods
+----
