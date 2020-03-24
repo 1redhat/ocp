@@ -1,0 +1,54 @@
+:machine: cluster-621c-6k6q7-worker-us-east-2a-gz9xv
+:machineset: cluster-621c-6k6q7-worker-us-east-2a
+:machinetype: m5.2xlarge
+
+= Machine and machine sets
+
+Change the instance type of a machine set within a OpenShift cluster.
+
+CAUTION: This is for demo purposes only 
+
+NOTE: Adjust {machineset} to your machineset and {machine} to the your machine in the instructions below.
+
+* Get a list of the machine sets
+
+[source, bash, subs="attributes"]
+----
+oc get machinesets -n openshift-machine-api
+----
+
+* Update the machine type with patch the machine set
+
+[source, bash, subs="attributes"]
+----
+oc patch machineset {machineset} --type='merge' --patch='{"spec": { "template": { "spec": { "providerSpec": { "value": { "instanceType": "{machinetype}"}}}}}}' -n openshift-machine-api
+----
+
+* Scale the the machine set to 0 to remove all machines
+
+[source, bash, subs="attributes"]
+----
+oc scale machineset {machineset} --replicas=0 -n openshift-machine-api
+----
+
+* Scale the the machine set to 1 to recreate the machine
+[source, bash, subs="attributes"]
+----
+oc scale machineset {machineset} --replicas=1 -n openshift-machine-api
+----
+
+* Verify a new machine of the {machinetype} type exists.  (it may take a few minutes to create a mahine)
+[source, bash, subs="attributes"]
+----
+oc get machines -n openshift-machine-api
+----
+
+== Addtional commands
+[source, bash, subs="attributes"]
+----
+oc get machines -n openshift-machine-api   # list the machines
+oc get machines -l machine.openshift.io/cluster-api-machine-type=worker -n openshift-machine-api   # list of workers
+oc describe machine {machine} -n openshift-machine-api   # details of the machine 
+oc get machinesets -n openshift-machine-api   # list of machine sets
+oc get nodes   # list of nodes
+----
