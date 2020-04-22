@@ -13,7 +13,7 @@ Now you should have `user1` to `user5`, and `admin1` to `admin5` all with the pa
 
 NOTE: the identity provider can also be added using the UI at Administration -> Cluster Settings, Global Configuration tab, click OAuth
 
-== Removing Kubeadmin suer
+== Removing Kubeadmin user
 ----
 oc delete secrets kubeadmin -n kube-system
 ----
