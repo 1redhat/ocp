@@ -13,12 +13,17 @@ Now you should have `user1` to `user5`, and `admin1` to `admin5` all with the pa
 
 NOTE: the identity provider can also be added using the UI at Administration -> Cluster Settings, Global Configuration tab, click OAuth
 
+== Removing Kubeadmin suer
+----
+oc delete secrets kubeadmin -n kube-system
+----
+
 == Adding additional users
 ----
 htpasswd -b users.htpasswd user6 1redhat
 ----
 
-Addtional commands
+== Additional commands
 [source, bash]
 ----
 oc describe OAuth/cluster # describe the configured indentity providers
