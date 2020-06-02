@@ -1,0 +1,13 @@
+== Installing OCP 4 on OPEN TLC
+minimalistic instructions for installing on https://labs.opentlc.com/[open tlc].
+
+----
+ssh username@<bastion hostname from the email>
+sudo -i
+wget https://raw.githubusercontent.com/piggyvenus/examples/master/ocp4-aws-labs/setup.sh
+chmod +x ./setup.sh
+./setup.sh  <version> <AWSKEY> <AWSSECRETKEY>
+openshift-install create cluster
+----
+
+NOTE: Version List https://mirror.openshift.com/pub/openshift-v4/clients/ocp/  
