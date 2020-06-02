@@ -10,3 +10,5 @@ oc adm policy add-cluster-role-to-user cluster-admin admin3
 oc adm policy add-cluster-role-to-user cluster-admin admin4
 oc adm policy add-cluster-role-to-user cluster-admin admin5
 
+# delete kubeadmin
+oc delete secrets kubeadmin -n kube-system
