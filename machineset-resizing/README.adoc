@@ -32,6 +32,7 @@ oc scale machineset {machineset} --replicas=0 -n openshift-machine-api
 ----
 
 * Scale the the machine set to 1 to recreate the machine
+
 [source, bash, subs="attributes"]
 ----
 oc scale machineset {machineset} --replicas=1 -n openshift-machine-api
